@@ -21,6 +21,8 @@ int main(){
                           "src\\congnhan.cpp "
                           "src\\hamphu.cpp "
                           "src\\phancong.cpp "
+                          "src\\banner.cpp "
+                          "src\\taongaunhien.cpp "
                           "-o " +
                           duongdan_filethucthi;
     system(lenhbiendich.c_str());

@@ -1,6 +1,7 @@
 #include "lib/phancong.h"
 #include "lib/cautrucdulieu.h"
 #include "lib/congnhan.h"
+#include "lib/hamphu.h"
 
 int TinhUCLN(int a, int b){
     while(b != 0){
@@ -61,10 +62,17 @@ Từ đó ta suy ra
 => BCNN dùng để tìm ra số ngày chu kỳ 
 */
 
-void PhanCong(DanhSachVong& danhsachvongA, DanhSachVong& danhsachvongB){
+void TaoBangPhanCong(DanhSachVong& danhsachvongA, DanhSachVong& danhsachvongB){
+    if(KiemTraDanhSachRong(danhsachvongA) 
+    || KiemTraDanhSachRong(danhsachvongB)){
+        cout << "(!) Vui lòng nhập hoặc khởi tạo cho danh sách A và B trước khi dùng tính năng phân công !" << endl;
+        return;
+    }    
     int ucln = TinhUCLN(danhsachvongA.soluong, danhsachvongB.soluong);
     int chuky = TinhBCNN(danhsachvongA.soluong, danhsachvongB.soluong);
-    cout << "(*) UCLN là " << ucln;
+    cout << "(*) UCLN: " 
+         << danhsachvongA.soluong << " & " << danhsachvongB.soluong 
+         << " là " << ucln;
     if(ucln > 1){
         cout << " > 1" << endl;
         cout << "(!) Không thể lập bảng phân công !" << endl;
@@ -72,7 +80,11 @@ void PhanCong(DanhSachVong& danhsachvongA, DanhSachVong& danhsachvongB){
     } 
 
     cout << " = 1" << endl;
-    cout << "(*) Có thể lập bảng phân công theo chu kỳ " << chuky << " ngày !\n" << endl;
+    cout << "(*) Có thể lập bảng phân công theo chu kỳ " 
+         << chuky << " ngày (" 
+         << danhsachvongA.soluong << " x "
+         << danhsachvongB.soluong << ")" 
+         << endl;
 
     NodeVongPtr congnhanA = danhsachvongA.first;
     NodeVongPtr congnhanB = danhsachvongB.first;
@@ -80,19 +92,19 @@ void PhanCong(DanhSachVong& danhsachvongA, DanhSachVong& danhsachvongB){
                  << setw(25) << "Công nhân PX-A"
                  << setw(10) << "Công nhân PX-B"
                  << endl;
-    cout << string(60, '-') << endl;
+    InDuongNgang(60, "─");
     for (int ngay = 1; ngay <= chuky; ngay++) {
         XuatThongTinPhanCong(ngay, congnhanA, congnhanB);
         congnhanA = congnhanA->link;  
         congnhanB = congnhanB->link;
     }
-    cout << string(60, '-') << endl;
+    InDuongNgang(60, "─");
     XuatThongTinPhanCong(chuky+1, congnhanA, congnhanB);
     cout << "\nChu kỳ " << chuky << " ngày vì sang ngày " << chuky+1 << " đã quay lại ban đầu" << endl;
 }
 
 void XuatThongTinPhanCong(int ngay, NodeVongPtr congnhanA, NodeVongPtr congnhanB){
-    cout << left << setw(15) << "Ngày" + to_string(ngay)
+    cout << left << setw(15) << "Ngày " + to_string(ngay)
                  << setw(25) << congnhanA->data.hoten
                  << setw(10) << congnhanB->data.hoten
                  << endl;

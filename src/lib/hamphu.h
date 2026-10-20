@@ -7,5 +7,9 @@
 
 int LayNamHienTai();
 bool XuLySoNguyen(int &n);
+void InDuongNgang(int soluong = 60, string kytu = "─");
+void InTieuDe(string tieude);
+void XoaManHinh();
+void DungChuongTrinh();
 
 #endif

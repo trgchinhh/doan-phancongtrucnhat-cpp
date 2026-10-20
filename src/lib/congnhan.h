@@ -30,7 +30,4 @@ struct CongNhan {
 void NhapThongTinCongNhan(CongNhan& congnhan);
 void XuatThongTinCongNhan(CongNhan congnhan);
 
-// tên phân xưởng làm việc cho phép là A và B 
-const vector<string> tenphanxuonglamviecchophep = {"A", "B"};
-
 #endif

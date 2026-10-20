@@ -26,7 +26,8 @@ void ThemNodeVaoDauVong(DanhSachVong &danhsachvong, NodeVongPtr nodemoi){
         danhsachvong.last->link = nodemoi;
         danhsachvong.first = nodemoi;
     }
-    cout << "Đã thêm node mới vào đầu danh sách" << endl;
+    int soluong = ++danhsachvong.soluong;
+    cout << "(!) Đã thêm node " << soluong << " vào đầu danh sách" << endl;
 }
 
 void ThemNodeVaoCuoiVong(DanhSachVong& danhsachvong, NodeVongPtr nodemoi){
@@ -39,6 +40,8 @@ void ThemNodeVaoCuoiVong(DanhSachVong& danhsachvong, NodeVongPtr nodemoi){
         danhsachvong.last->link = nodemoi;
         danhsachvong.last = nodemoi;
     }
+    int soluong = ++danhsachvong.soluong;
+    cout << "(!) Đã thêm node " << soluong << " vào cuối danh sách" << endl;
 }
 
 // lấy số thứ tự công nhân cuối cùng [dùng cho hàm nhập]
@@ -50,7 +53,6 @@ int LaySoThuTuCongNhan(DanhSachVong danhsachvong){
 }
 
 void NhapDanhSach(DanhSachVong& danhsachvong, string tenphanxuong){
-    cout << "Nhập công nhân phân xưởng " << tenphanxuong << endl;
     cout << "(?) Nhập số lượng công nhân muốn thêm: ";
     int soluongmuonthem; 
     XuLySoNguyen(soluongmuonthem);
@@ -73,8 +75,9 @@ void XuatDanhSach(DanhSachVong danhsachvong, string tenphanxuong){
         cout << "(!) Danh sách rỗng !" << endl;
         return;
     }
-    cout << "Danh sách" << endl;
-    cout << left << setw(20) << "Tên"
+    cout << "Danh sách công nhân phân xưởng " << tenphanxuong << endl;
+    cout << left << setw(10) << "STT"
+                 << setw(20) << "Tên"
                  << setw(20) << "Năm sinh"
                  << setw(20) << "Phân xưởng"
                  << endl;

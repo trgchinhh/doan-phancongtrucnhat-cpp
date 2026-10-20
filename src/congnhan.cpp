@@ -1,5 +1,6 @@
 #include "lib/congnhan.h"
 #include "lib/cautrucdulieu.h"
+#include "lib/hamphu.h"
 #include <iomanip>
 
 void NhapThongTinCongNhan(CongNhan& congnhan){
@@ -30,7 +31,7 @@ void NhapThongTinCongNhan(CongNhan& congnhan){
         cout << "(?) Nhập năm sinh công nhân: ";
         cin >> namsinhcongnhan_tam;
         // quy định năm sinh công nhân ko bé hơn 1965 và lớn hơn (2026-18=2008)
-        if(namsinhcongnhan_tam < 1965 || namsinhcongnhan_tam > (LayNamHienTai() - 18)){
+        if(namsinhcongnhan_tam < (LayNamHienTai() - 55)  || namsinhcongnhan_tam > (LayNamHienTai() - 18)){
             cout << "(!) Năm sinh quy định nằm trong khoảng 1965 -> " << LayNamHienTai() - 18 << endl;
             solansainamsinhtoida--; 
         } else break;
@@ -58,7 +59,8 @@ void NhapThongTinCongNhan(CongNhan& congnhan){
 }
 
 void XuatThongTinCongNhan(CongNhan congnhan){
-    cout << left << setw(20) << congnhan.hoten
+    cout << left << setw(10) << congnhan.sothutu
+                 << setw(20) << congnhan.hoten
                  << setw(20) << congnhan.namsinh 
                  << setw(20) << congnhan.tenphanxuong 
                  << endl;

@@ -8,6 +8,10 @@
 #include <vector>
 #include <iomanip>
 #include <limits>
+#include <conio.h>
+#include <random>
+#include <codecvt>
+#include <cwctype>
 
 using namespace std;
 

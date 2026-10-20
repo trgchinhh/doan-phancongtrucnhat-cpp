@@ -8,5 +8,6 @@
 #include "lib/congnhan.h"
 #include "lib/hamphu.h"
 #include "lib/phancong.h"
+#include "lib/banner.h"
 
 #endif
