@@ -7,15 +7,17 @@ int LayNamHienTai(){
     return hientai->tm_year + 1900;
 }
 
-bool XuLySoNguyen(int &n){
-    cin >> n;
-    if (cin.fail()) {
-        cin.clear();                                         
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+bool XuLySoNguyen(int &n) {
+    string s;
+    getline(cin, s);
+    try {
+        size_t pos;
+        n = stoi(s, &pos);
+        return pos == s.size();
+    } catch (...) {
         return false;
     }
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');     
-    return true;
+    return false;
 }
 
 void InDuongNgang(int soluong, string kytu){

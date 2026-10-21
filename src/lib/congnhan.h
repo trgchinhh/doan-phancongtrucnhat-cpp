@@ -27,7 +27,7 @@ struct CongNhan {
     }
 };
 
-void NhapThongTinCongNhan(CongNhan& congnhan);
+bool NhapThongTinCongNhan(CongNhan& congnhan);
 void XuatThongTinCongNhan(CongNhan congnhan);
 
 #endif

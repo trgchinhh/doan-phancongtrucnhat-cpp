@@ -88,24 +88,36 @@ void TaoBangPhanCong(DanhSachVong& danhsachvongA, DanhSachVong& danhsachvongB){
 
     NodeVongPtr congnhanA = danhsachvongA.first;
     NodeVongPtr congnhanB = danhsachvongB.first;
+    NodeVongPtr congnhanA_dautien = congnhanA;
     cout << left << setw(15) << "Ngày"
                  << setw(25) << "Công nhân PX-A"
-                 << setw(10) << "Công nhân PX-B"
+                 << setw(25) << "Công nhân PX-B"
+                 << setw(10) << "Đánh dấu"
                  << endl;
-    InDuongNgang(60, "─");
+    InDuongNgang(70, "─");
+
     for (int ngay = 1; ngay <= chuky; ngay++) {
-        XuatThongTinPhanCong(ngay, congnhanA, congnhanB);
+        if(congnhanA == congnhanA_dautien){
+            XuatThongTinPhanCong(ngay, congnhanA, congnhanB, true);
+        } else {
+            XuatThongTinPhanCong(ngay, congnhanA, congnhanB, false);
+        }
         congnhanA = congnhanA->link;  
         congnhanB = congnhanB->link;
     }
-    InDuongNgang(60, "─");
-    XuatThongTinPhanCong(chuky+1, congnhanA, congnhanB);
-    cout << "\nChu kỳ " << chuky << " ngày vì sang ngày " << chuky+1 << " đã quay lại ban đầu" << endl;
+    InDuongNgang(70, "─");
+    XuatThongTinPhanCong(chuky+1, congnhanA, congnhanB, false);
+    cout << "\nChu kỳ " << chuky << " ngày vì sang ngày " << chuky+1 
+         << " đã quay lại chu kỳ ban đầu" << endl;
 }
 
-void XuatThongTinPhanCong(int ngay, NodeVongPtr congnhanA, NodeVongPtr congnhanB){
+void XuatThongTinPhanCong(int ngay, NodeVongPtr congnhanA, NodeVongPtr congnhanB, bool danhdau){
     cout << left << setw(15) << "Ngày " + to_string(ngay)
                  << setw(25) << congnhanA->data.hoten
-                 << setw(10) << congnhanB->data.hoten
-                 << endl;
+                 << setw(25) << congnhanB->data.hoten;
+    if(danhdau){
+        cout << left << setw(10) << "[─]" << endl;
+    } else{
+        cout << endl;
+    }
 }

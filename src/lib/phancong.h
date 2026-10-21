@@ -9,6 +9,6 @@
 int TinhUCLN(int a, int b);
 int TinhBCNN(int a, int b);
 void TaoBangPhanCong(DanhSachVong& danhsachvongA, DanhSachVong& danhsachvongB);
-void XuatThongTinPhanCong(int ngay, NodeVongPtr congnhanA, NodeVongPtr congnhanB);
+void XuatThongTinPhanCong(int ngay, NodeVongPtr congnhanA, NodeVongPtr congnhanB, bool ghichu);
 
 #endif

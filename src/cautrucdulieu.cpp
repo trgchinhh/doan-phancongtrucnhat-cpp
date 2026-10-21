@@ -1,4 +1,5 @@
 #include "lib/cautrucdulieu.h"
+#include "lib/hamphu.h"
 
 void KhoiTaoDanhSachVong(DanhSachVong& danhsachvong){
     danhsachvong.first = NULL;
@@ -55,16 +56,25 @@ int LaySoThuTuCongNhan(DanhSachVong danhsachvong){
 void NhapDanhSach(DanhSachVong& danhsachvong, string tenphanxuong){
     cout << "(?) Nhập số lượng công nhân muốn thêm: ";
     int soluongmuonthem; 
-    XuLySoNguyen(soluongmuonthem);
+    if(!XuLySoNguyen(soluongmuonthem)){
+        cout << "(!) Vui lòng nhập số lượng hợp lệ !" << endl;
+        DungChuongTrinh();
+        return;
+    }
     if(soluongmuonthem <= 0){
         cout << "(!) Số lượng nhân viên phải lớn hơn 0 !" << endl;
+        DungChuongTrinh();
         return;
     }
     int sothutucuoicung = LaySoThuTuCongNhan(danhsachvong);
     for(int i = 0; i < soluongmuonthem; i++){
         cout << "Nhập thông tin công nhân thứ " << sothutucuoicung + i + 1 << endl;
         CongNhan congnhanmoi;
-        NhapThongTinCongNhan(congnhanmoi);
+        if(!NhapThongTinCongNhan(congnhanmoi)){
+            cout << "  (!) Vui lòng nhập lại !" << endl;
+            DungChuongTrinh();
+            return;
+        }
         NodeVongPtr nodemoi = KhoiTaoNode(congnhanmoi);
         ThemNodeVaoCuoiVong(danhsachvong, nodemoi);
     }

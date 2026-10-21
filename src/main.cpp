@@ -32,16 +32,21 @@ int main(){
         XoaManHinh();
         InBannerHoacMenu(bannerchinh);
         InBannerHoacMenu(menuchinh);
-        cout << "[-] Lựa chọn: "; XuLySoNguyen(luachon);
+        cout << "[-] Lựa chọn: "; 
+        if(!XuLySoNguyen(luachon)){
+            goto luachonsai;
+        }
         if(luachon == 1){
             XoaManHinh();
             InTieuDe("NHẬP CÔNG NHÂN PHÂN XƯỞNG A");
             NhapDanhSach(danhsachvong_phanxuongA, "A");
+            continue;
         } 
         else if(luachon == 2){
             XoaManHinh();
             InTieuDe("NHẬP CÔNG NHÂN PHÂN XƯỞNG B");
             NhapDanhSach(danhsachvong_phanxuongB, "B");
+            continue;
         }
         else if(luachon == 3){
             XoaManHinh();
@@ -93,7 +98,8 @@ int main(){
             break;
         }
         else {
-            cout << "(!) Vui lòng nhập lựa chọn hợp lệ !" << endl;
+            luachonsai:
+                cout << "(!) Vui lòng nhập lựa chọn hợp lệ !" << endl;
         }
         DungChuongTrinh();
     }
