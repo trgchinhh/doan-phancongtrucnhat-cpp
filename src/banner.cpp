@@ -41,6 +41,11 @@ const string menuchinh = R"([01] Nhập công nhân PX-A
 [00] Thoát 
 )";
 
+const string menuphu5 = R"([01] In nhanh 
+[02] Đếm từng ngày 
+[00] Quay lại
+)";
+
 void InBannerHoacMenu(const string bannerhoacmenu){
     cout << bannerhoacmenu << endl;
 }

@@ -65,8 +65,8 @@ int main(){
                 DungChuongTrinh();
                 continue;
             }
-            if(!soluongcongnhan_phanxuongA || !soluongcongnhan_phanxuongB){
-                cout << "(!) Vui lòng nhập số lượng công nhân lớn hơn 0 !" << endl;
+            if(soluongcongnhan_phanxuongA < 0 || soluongcongnhan_phanxuongB < 0){
+                cout << "(!) Vui lòng nhập số lượng công nhân lớn hơn hoặc bằng 0 !" << endl;
                 DungChuongTrinh();
                 continue;
             }

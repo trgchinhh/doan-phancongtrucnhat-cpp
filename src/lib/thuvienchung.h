@@ -12,6 +12,7 @@
 #include <random>
 #include <codecvt>
 #include <cwctype>
+#include <ostream>
 
 using namespace std;
 

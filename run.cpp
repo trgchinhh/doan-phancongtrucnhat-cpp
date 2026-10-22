@@ -23,9 +23,10 @@ int main(){
                           "src\\phancong.cpp "
                           "src\\banner.cpp "
                           "src\\taongaunhien.cpp "
+                          "src\\mau.cpp "
                           "-o " +
                           duongdan_filethucthi;
     system(lenhbiendich.c_str());
-    system(duongdan_filethucthi.c_str());
+    system((duongdan_filethucthi).c_str());
     return 0;
 }

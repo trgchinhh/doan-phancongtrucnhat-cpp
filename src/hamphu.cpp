@@ -35,7 +35,13 @@ void XoaManHinh(){
     system("cls");
 }
 
-void DungChuongTrinh(){
+// void DungChuongTrinh(){
+//     cout << "Nhấn phím bất kỳ để tiếp tục ...";
+//     getch();
+// }
+
+void DungChuongTrinh() {
     cout << "Nhấn phím bất kỳ để tiếp tục ...";
     getch();
+    cout << "\r\033[2K";
 }

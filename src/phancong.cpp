@@ -2,6 +2,8 @@
 #include "lib/cautrucdulieu.h"
 #include "lib/congnhan.h"
 #include "lib/hamphu.h"
+#include "lib/mau.h"
+#include <sstream>
 
 int TinhUCLN(int a, int b){
     while(b != 0){
@@ -68,6 +70,25 @@ void TaoBangPhanCong(DanhSachVong& danhsachvongA, DanhSachVong& danhsachvongB){
         cout << "(!) Vui lòng nhập hoặc khởi tạo cho danh sách A và B trước khi dùng tính năng phân công !" << endl;
         return;
     }    
+    int luachon = 0;
+    while(true){
+        XoaManHinh();
+        InBannerHoacMenu(menuphu5);
+        cout << "[-] Lựa chọn: "; 
+        if(!XuLySoNguyen(luachon)){
+            goto luachonsai;
+        }
+        if(luachon == 1 || luachon == 2){
+            break;
+        }
+        else if(luachon == 0){
+            return;
+        }
+        else {
+            luachonsai:
+                cout << "(!) Vui lòng nhập lựa chọn hợp lệ !" << endl;
+        }
+    }
     int ucln = TinhUCLN(danhsachvongA.soluong, danhsachvongB.soluong);
     int chuky = TinhBCNN(danhsachvongA.soluong, danhsachvongB.soluong);
     cout << "(*) UCLN: " 
@@ -89,6 +110,7 @@ void TaoBangPhanCong(DanhSachVong& danhsachvongA, DanhSachVong& danhsachvongB){
     NodeVongPtr congnhanA = danhsachvongA.first;
     NodeVongPtr congnhanB = danhsachvongB.first;
     NodeVongPtr congnhanA_dautien = congnhanA;
+    NodeVongPtr congnhanB_dautien = congnhanB;
     cout << left << setw(15) << "Ngày"
                  << setw(25) << "Công nhân PX-A"
                  << setw(25) << "Công nhân PX-B"
@@ -97,27 +119,37 @@ void TaoBangPhanCong(DanhSachVong& danhsachvongA, DanhSachVong& danhsachvongB){
     InDuongNgang(70, "─");
 
     for (int ngay = 1; ngay <= chuky; ngay++) {
-        if(congnhanA == congnhanA_dautien){
-            XuatThongTinPhanCong(ngay, congnhanA, congnhanB, true);
+        if(congnhanA == congnhanA_dautien && congnhanB == congnhanB_dautien){
+            XuatThongTinPhanCong(ngay, congnhanA, congnhanB, true, RED);
+        }
+        else if(congnhanA == congnhanA_dautien){
+            XuatThongTinPhanCong(ngay, congnhanA, congnhanB, true, YELLOW);
         } else {
-            XuatThongTinPhanCong(ngay, congnhanA, congnhanB, false);
+            XuatThongTinPhanCong(ngay, congnhanA, congnhanB, false, RESET);
         }
         congnhanA = congnhanA->link;  
         congnhanB = congnhanB->link;
+        if(luachon == 2){
+            DungChuongTrinh();
+        }
     }
     InDuongNgang(70, "─");
-    XuatThongTinPhanCong(chuky+1, congnhanA, congnhanB, false);
+    XuatThongTinPhanCong(chuky + 1, congnhanA, congnhanB, true, RED);
     cout << "\nChu kỳ " << chuky << " ngày vì sang ngày " << chuky+1 
          << " đã quay lại chu kỳ ban đầu" << endl;
 }
 
-void XuatThongTinPhanCong(int ngay, NodeVongPtr congnhanA, NodeVongPtr congnhanB, bool danhdau){
-    cout << left << setw(15) << "Ngày " + to_string(ngay)
-                 << setw(25) << congnhanA->data.hoten
-                 << setw(25) << congnhanB->data.hoten;
+void XuatThongTinPhanCong(int ngay, NodeVongPtr congnhanA, NodeVongPtr congnhanB, bool danhdau, string mau){
     if(danhdau){
-        cout << left << setw(10) << "[─]" << endl;
+        cout << mau << left << setw(15) << "Ngày " + to_string(ngay)
+                   << setw(25) << congnhanA->data.hoten
+                   << setw(25) << congnhanB->data.hoten
+                   << setw(10) << "[─]" << RESET << endl;
+        
     } else{
-        cout << endl;
+        cout << left << setw(15) << "Ngày " + to_string(ngay)
+                     << setw(25) << congnhanA->data.hoten
+                     << setw(25) << congnhanB->data.hoten
+                     << endl;
     }
 }

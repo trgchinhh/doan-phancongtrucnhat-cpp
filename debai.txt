@@ -1,0 +1,6 @@
+ĐỒ ÁN TIN HỌC 
+
+Viết bằng C/C++
+Dựa trên 1 kiểu cấu trúc dữ liệu nào đó và giải thích tại sao lại chọn kiểu cấu trúc dữ liệu đó 
+
+Một công trường nọ có hai phân xưởng A, B với số người là a, b. Mỗi người đều có thông tin gồm họ tên, năm sinh, phân xưởng làm việc. Mỗi ngày cần hai người trực nhật lấy ở hai phân xưởng trên, mỗi phân xưởng 1 người. Qui tắc lấy người ở mỗi phân xưởng là lần lượt quay vòng từ người đầu tiên đến người cuối cùng và lại quay lại người đầu tiên. Lập chương trình phân công trực nhật sao cho trong một khoảng thời gian nào đó mỗi người ở phân xưởng A sẽ lần lượt trực nhật với mỗi người ở phân xưởng B và quá trình này sẽ được lặp lại một cách tuần hoàn, khi nào thì lập được bảng phân công như vậy. (tìm điều kiện khi nào thì lập được bảng phân công như vậy)
