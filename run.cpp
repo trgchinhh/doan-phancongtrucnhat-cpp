@@ -16,16 +16,7 @@ int main(){
         cout << "Đã tồn tại thư mục " << thumuc_filethucthi << endl;
     }
 
-    string lenhbiendich = "g++ src\\main.cpp "  
-                          "src\\cautrucdulieu.cpp "
-                          "src\\congnhan.cpp "
-                          "src\\hamphu.cpp "
-                          "src\\phancong.cpp "
-                          "src\\banner.cpp "
-                          "src\\taongaunhien.cpp "
-                          "src\\mau.cpp "
-                          "-o " +
-                          duongdan_filethucthi;
+    string lenhbiendich = "g++ src\\*.cpp -o " + duongdan_filethucthi;
     system(lenhbiendich.c_str());
     system((duongdan_filethucthi).c_str());
     return 0;

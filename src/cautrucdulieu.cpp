@@ -22,6 +22,7 @@ void ThemNodeVaoDauVong(DanhSachVong &danhsachvong, NodeVongPtr nodemoi){
     if(KiemTraDanhSachRong(danhsachvong)){
         danhsachvong.first = nodemoi;
         danhsachvong.last = nodemoi;
+        nodemoi->link = nodemoi;
     } else {
         nodemoi->link = danhsachvong.first;
         danhsachvong.last->link = nodemoi;

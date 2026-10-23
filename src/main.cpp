@@ -1,9 +1,4 @@
 #include "include.h"
-#include "lib/banner.h"
-#include "lib/cautrucdulieu.h"
-#include "lib/hamphu.h"
-#include "lib/phancong.h"
-#include "lib/taongaunhien.h"
 
 int main(){
     system("cls");

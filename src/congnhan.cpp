@@ -33,16 +33,21 @@ bool NhapThongTinCongNhan(CongNhan& congnhan){
     // nhập năm sinh 
     do {
         cout << "  - (?) Nhập năm sinh công nhân: ";
-        cin >> namsinhcongnhan_tam;
+        if(!XuLySoNguyen(namsinhcongnhan_tam)){
+            cout << "  (!) Vui lòng nhập năm sinh bằng số !" << endl;
+            solansainamsinhtoida--;
+        }
         // quy định năm sinh công nhân ko bé hơn 1965 và lớn hơn (2026-18=2008)
-        if(namsinhcongnhan_tam < (LayNamHienTai() - 55)  || namsinhcongnhan_tam > (LayNamHienTai() - 18)){
-            cout << "  (!) Năm sinh quy định nằm trong khoảng 1965 -> " << LayNamHienTai() - 18 << endl;
+        else if(namsinhcongnhan_tam < (LayNamHienTai() - 55)  || namsinhcongnhan_tam > (LayNamHienTai() - 18)){
+            cout << "  (!) Năm sinh quy định nằm trong khoảng "
+                 << LayNamHienTai() - 55 << " -> " 
+                 << LayNamHienTai() - 18 << endl;
             solansainamsinhtoida--; 
-            if(solansainamsinhtoida){
-                cout << "  (!) Không được để rỗng vui lòng nhập lại ("
-                     << solansainamsinhtoida << "/" << SOLANNHAPSAITOIDA << ")" << endl;
-            }
         } else break;
+        if(solansainamsinhtoida){
+            cout << "  (!) Không được để rỗng vui lòng nhập lại ("
+                 << solansainamsinhtoida << "/" << SOLANNHAPSAITOIDA << ")" << endl;
+        }
     } while(solansainamsinhtoida > 0);
     if(solansainamsinhtoida == 0){
         return false;
