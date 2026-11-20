@@ -16,7 +16,7 @@ struct CongNhan {
         this->sothutu = 0;
         this->hoten = "Chưa có";
         this->namsinh = 2000;
-        this->tenphanxuong = "A";
+        this->tenphanxuong = "Chưa có";
     }
 
     CongNhan(int sothutu, string hoten, int namsinh, string tenphanxuong){
@@ -27,7 +27,7 @@ struct CongNhan {
     }
 };
 
-bool NhapThongTinCongNhan(CongNhan& congnhan);
+bool NhapThongTinCongNhan(CongNhan& congnhan, string tenphanxuong);
 void XuatThongTinCongNhan(CongNhan congnhan);
 
 #endif

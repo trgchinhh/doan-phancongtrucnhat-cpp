@@ -1,5 +1,4 @@
 #include "lib/hamphu.h"
-#include <cctype>
 
 int LayNamHienTai(){
     time_t thoigian = time(NULL);

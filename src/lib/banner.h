@@ -9,7 +9,7 @@ extern const string bannerphancong;
 extern const string bannerchinh;
 extern const string bannertambiet;
 extern const string menuchinh;
-extern const string menuphu5;
+extern const string menuxoa;
 
 void InBannerHoacMenu(const string bannerhoacmenu);
 

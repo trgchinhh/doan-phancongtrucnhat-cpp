@@ -2,16 +2,11 @@
 #include "lib/cautrucdulieu.h"
 #include "lib/congnhan.h"
 #include "lib/hamphu.h"
-#include <random>
 
 string RandomTen(mt19937& gen){
     return danhsachho[gen() % danhsachho.size()] + " "
          + danhsachtendem[gen() % danhsachtendem.size()] + " "
          + danhsachten[gen() % danhsachten.size()];
-}
-
-string RandomTenPhanXuong(mt19937& gen){
-    return tenphanxuonglamviecchophep[gen() % tenphanxuonglamviecchophep.size()];
 }
 
 int RandomNamSinh(mt19937& gen){
@@ -33,5 +28,5 @@ void TaoDanhSachNgauNhien(DanhSachVong& danhsachvong, int soluongcongnhan, strin
         ThemNodeVaoCuoiVong(danhsachvong, nodemoi);
     }
     //danhsachvong.soluong = LaySoThuTuCongNhan(danhsachvong) + soluongcongnhan;
-    cout << "(!) Đã khởi tạo danh sách ngẫu nhân phân xưởng " << tenphanxuong << endl;
+    cout << "(*) Đã khởi tạo danh sách ngẫu nhân phân xưởng " << tenphanxuong << endl;
 }

@@ -38,11 +38,13 @@ const string menuchinh = R"([01] Nhập công nhân PX-A
 [03] Tạo ngẫu nhiên công nhân cho PX-A và PX-B
 [04] Xuất danh sách công nhân
 [05] Tạo bảng phân công trực nhật 
+[06] Xóa danh sách công nhân
 [00] Thoát 
 )";
 
-const string menuphu5 = R"([01] In nhanh 
-[02] Đếm từng ngày 
+const string menuxoa = R"([01] Xóa danh sách công nhân A
+[02] Xóa danh sách công nhân B
+[03] Xóa tất cả 
 [00] Quay lại
 )";
 

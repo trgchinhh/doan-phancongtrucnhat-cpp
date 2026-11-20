@@ -2,12 +2,10 @@
 #include "lib/cautrucdulieu.h"
 #include "lib/hamphu.h"
 #include "lib/thuvienchung.h"
-#include <iomanip>
 
-bool NhapThongTinCongNhan(CongNhan& congnhan){
+bool NhapThongTinCongNhan(CongNhan& congnhan, string tenphanxuong){
     string tencongnhan_tam;
     int namsinhcongnhan_tam;
-    string tenphanxuong_tam;
 
     // khai báo số lần nhập sai tối đa cho các thành phần
     int solansaitentoida = SOLANNHAPSAITOIDA;
@@ -52,27 +50,9 @@ bool NhapThongTinCongNhan(CongNhan& congnhan){
     if(solansainamsinhtoida == 0){
         return false;
     }
-
-    // nhập tên phân xưởng
-    do {
-        cout << "  - (?) Nhập tên phân xưởng (A/B): ";
-        cin >> tenphanxuong_tam;
-        if(tenphanxuong_tam != "A" && tenphanxuong_tam != "B"){
-            cout << "  (!) Tên phân xưởng là 'A' hoặc 'B'" << endl;
-            solansaitenphanxuongtoida--;
-            if(solansaitenphanxuongtoida){
-                cout << "  (!) Không được để rỗng vui lòng nhập lại ("
-                     << solansaitenphanxuongtoida << "/" << SOLANNHAPSAITOIDA << ")" << endl;
-            }
-        } else break;
-    } while(solansaitenphanxuongtoida > 0);
-    if(solansaitenphanxuongtoida == 0){
-        return false;
-    }
-
     congnhan.hoten = tencongnhan_tam;
     congnhan.namsinh = namsinhcongnhan_tam;
-    congnhan.tenphanxuong = tenphanxuong_tam;
+    congnhan.tenphanxuong = tenphanxuong;
     return true;
 }
 

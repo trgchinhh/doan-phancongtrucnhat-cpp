@@ -3,7 +3,6 @@
 #include "lib/congnhan.h"
 #include "lib/hamphu.h"
 #include "lib/mau.h"
-#include <sstream>
 
 int TinhUCLN(int a, int b){
     while(b != 0){
@@ -70,25 +69,6 @@ void TaoBangPhanCong(DanhSachVong& danhsachvongA, DanhSachVong& danhsachvongB){
         cout << "(!) Vui lòng nhập hoặc khởi tạo cho danh sách A và B trước khi dùng tính năng phân công !" << endl;
         return;
     }    
-    int luachon = 0;
-    while(true){
-        XoaManHinh();
-        InBannerHoacMenu(menuphu5);
-        cout << "[-] Lựa chọn: "; 
-        if(!XuLySoNguyen(luachon)){
-            goto luachonsai;
-        }
-        if(luachon == 1 || luachon == 2){
-            break;
-        }
-        else if(luachon == 0){
-            return;
-        }
-        else {
-            luachonsai:
-                cout << "(!) Vui lòng nhập lựa chọn hợp lệ !" << endl;
-        }
-    }
     int ucln = TinhUCLN(danhsachvongA.soluong, danhsachvongB.soluong);
     int chuky = TinhBCNN(danhsachvongA.soluong, danhsachvongB.soluong);
     cout << "(*) UCLN: " 
@@ -117,7 +97,6 @@ void TaoBangPhanCong(DanhSachVong& danhsachvongA, DanhSachVong& danhsachvongB){
                  << setw(10) << "Đánh dấu"
                  << endl;
     InDuongNgang(70, "─");
-
     for (int ngay = 1; ngay <= chuky; ngay++) {
         if(congnhanA == congnhanA_dautien && congnhanB == congnhanB_dautien){
             XuatThongTinPhanCong(ngay, congnhanA, congnhanB, true, RED);
@@ -129,9 +108,6 @@ void TaoBangPhanCong(DanhSachVong& danhsachvongA, DanhSachVong& danhsachvongB){
         }
         congnhanA = congnhanA->link;  
         congnhanB = congnhanB->link;
-        if(luachon == 2){
-            DungChuongTrinh();
-        }
     }
     InDuongNgang(70, "─");
     XuatThongTinPhanCong(chuky + 1, congnhanA, congnhanB, true, RED);

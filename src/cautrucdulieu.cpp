@@ -4,6 +4,7 @@
 void KhoiTaoDanhSachVong(DanhSachVong& danhsachvong){
     danhsachvong.first = NULL;
     danhsachvong.last = NULL;
+    danhsachvong.soluong = 0;
 }
 
 bool KiemTraDanhSachRong(DanhSachVong danhsachvong){
@@ -18,20 +19,6 @@ NodeVongPtr KhoiTaoNode(CongNhan dulieunhanvien){
     return Nodemoi;
 }
 
-void ThemNodeVaoDauVong(DanhSachVong &danhsachvong, NodeVongPtr nodemoi){
-    if(KiemTraDanhSachRong(danhsachvong)){
-        danhsachvong.first = nodemoi;
-        danhsachvong.last = nodemoi;
-        nodemoi->link = nodemoi;
-    } else {
-        nodemoi->link = danhsachvong.first;
-        danhsachvong.last->link = nodemoi;
-        danhsachvong.first = nodemoi;
-    }
-    int soluong = ++danhsachvong.soluong;
-    cout << "(!) Đã thêm node " << soluong << " vào đầu danh sách" << endl;
-}
-
 void ThemNodeVaoCuoiVong(DanhSachVong& danhsachvong, NodeVongPtr nodemoi){
     if(KiemTraDanhSachRong(danhsachvong)){
         danhsachvong.first = nodemoi;
@@ -43,7 +30,7 @@ void ThemNodeVaoCuoiVong(DanhSachVong& danhsachvong, NodeVongPtr nodemoi){
         danhsachvong.last = nodemoi;
     }
     int soluong = ++danhsachvong.soluong;
-    cout << "(!) Đã thêm node " << soluong << " vào cuối danh sách" << endl;
+    cout << "(*) Đã thêm công nhân " << nodemoi->data.hoten << " vào cuối danh sách" << endl;
 }
 
 // lấy số thứ tự công nhân cuối cùng [dùng cho hàm nhập]
@@ -71,7 +58,8 @@ void NhapDanhSach(DanhSachVong& danhsachvong, string tenphanxuong){
     for(int i = 0; i < soluongmuonthem; i++){
         cout << "Nhập thông tin công nhân thứ " << sothutucuoicung + i + 1 << endl;
         CongNhan congnhanmoi;
-        if(!NhapThongTinCongNhan(congnhanmoi)){
+        congnhanmoi.sothutu = sothutucuoicung + i + 1;
+        if(!NhapThongTinCongNhan(congnhanmoi, tenphanxuong)){
             cout << "  (!) Vui lòng nhập lại !" << endl;
             DungChuongTrinh();
             return;
@@ -82,11 +70,11 @@ void NhapDanhSach(DanhSachVong& danhsachvong, string tenphanxuong){
 }
 
 void XuatDanhSach(DanhSachVong danhsachvong, string tenphanxuong){
+    cout << "Danh sách công nhân phân xưởng " << tenphanxuong << endl;
     if(KiemTraDanhSachRong(danhsachvong)){
         cout << "(!) Danh sách rỗng !" << endl;
         return;
     }
-    cout << "Danh sách công nhân phân xưởng " << tenphanxuong << endl;
     cout << left << setw(10) << "STT"
                  << setw(20) << "Tên"
                  << setw(20) << "Năm sinh"

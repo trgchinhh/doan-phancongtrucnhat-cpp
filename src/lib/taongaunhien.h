@@ -5,7 +5,6 @@
 
 #include "cautrucdulieu.h"
 #include "thuvienchung.h"
-#include <random>
 
 // danh sách tên để random nhiều tên khác nhau 
 const vector<string> danhsachho = {
@@ -35,7 +34,7 @@ const vector<string> danhsachten = {
 };
 
 // tên phân xưởng làm việc cho phép là A và B 
-const vector<string> tenphanxuonglamviecchophep = {"A", "B"};
+// const vector<string> tenphanxuonglamviecchophep = {"A", "B"};
 
 string RandomTen(mt19937& gen);
 string RandomTenPhanXuong(mt19937& gen);

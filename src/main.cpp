@@ -1,4 +1,7 @@
 #include "include.h"
+#include "lib/banner.h"
+#include "lib/cautrucdulieu.h"
+#include "lib/hamphu.h"
 
 int main(){
     system("cls");
@@ -11,6 +14,7 @@ int main(){
     InBannerHoacMenu(bannerphancong);
     DungChuongTrinh();
 
+    // danh sách mẫu 
     // ThemNodeVaoCuoiVong(danhsachvong_phanxuongA, KhoiTaoNode({1, "Truong Chinh", 2006, "A"}));
     // ThemNodeVaoCuoiVong(danhsachvong_phanxuongA, KhoiTaoNode({2, "Gia Bao",      2006, "A"}));
     // ThemNodeVaoCuoiVong(danhsachvong_phanxuongA, KhoiTaoNode({3, "Minh Tuan",    2005, "A"}));
@@ -20,7 +24,6 @@ int main(){
     // ThemNodeVaoCuoiVong(danhsachvong_phanxuongB, KhoiTaoNode({7, "Thai Bao",     2006, "B"}));
     // ThemNodeVaoCuoiVong(danhsachvong_phanxuongB, KhoiTaoNode({8, "Quoc Anh",     2005, "B"}));
     // ThemNodeVaoCuoiVong(danhsachvong_phanxuongB, KhoiTaoNode({9, "Phuc Thinh",   2003, "B"}));
-    //PhanCong(danhsachvong_phanxuongA, danhsachvong_phanxuongB);
 
     int luachon;
     while(true){
@@ -86,6 +89,36 @@ int main(){
             TaoBangPhanCong(
                 danhsachvong_phanxuongA, danhsachvong_phanxuongB
             );
+        }
+        else if(luachon == 6){
+            int luachonxoa; 
+            while(true){
+                XoaManHinh();
+                InTieuDe("XÓA DANH SÁCH CÔNG NHÂN");
+                InBannerHoacMenu(menuxoa);
+                cout << "[-] Lựa chọn: ";
+                if(!XuLySoNguyen(luachonxoa)){
+                    goto luachonxoasai;
+                }
+                if(luachonxoa == 1){
+                    KhoiTaoDanhSachVong(danhsachvong_phanxuongA);
+                    cout << "(*) Đã xóa danh sách phân xưởng A" << endl;
+                } else if(luachonxoa == 2){
+                    KhoiTaoDanhSachVong(danhsachvong_phanxuongB);
+                    cout << "(*) Đã xóa danh sách phân xưởng B" << endl;
+                } else if(luachonxoa == 3){
+                    KhoiTaoDanhSachVong(danhsachvong_phanxuongA);
+                    KhoiTaoDanhSachVong(danhsachvong_phanxuongB);
+                    cout << "(*) Đã xóa danh sách 2 phân xưởng A và B" << endl;
+                } else if(luachonxoa == 0){
+                    break;
+                } else {
+                    luachonxoasai:
+                        cout << "(!) Vui lòng nhập lựa chọn hợp lệ !" << endl;
+                }
+                DungChuongTrinh();
+            }
+            continue;
         }
         else if(luachon == 0){
             XoaManHinh();

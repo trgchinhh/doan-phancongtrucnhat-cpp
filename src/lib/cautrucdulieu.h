@@ -23,10 +23,7 @@ struct DanhSachVong {
 void KhoiTaoDanhSachVong(DanhSachVong& danhsachvong);
 bool KiemTraDanhSachRong(DanhSachVong danhsachvong);
 NodeVongPtr KhoiTaoNode(CongNhan dulieunhanvien);
-
-void ThemNodeVaoDauVong(DanhSachVong& danhsachvong, NodeVongPtr nodemoi);
 void ThemNodeVaoCuoiVong(DanhSachVong &danhsachvong, NodeVongPtr nodemoi);
-
 int LaySoThuTuCongNhan(DanhSachVong danhsachvong);
 void NhapDanhSach(DanhSachVong& danhsachvong, string tenphanxuong);
 void XuatDanhSach(DanhSachVong danhsachvong, string tenphanxuong);
