@@ -4,7 +4,6 @@
 void KhoiTaoDanhSachVong(DanhSachVong& danhsachvong){
     danhsachvong.first = NULL;
     danhsachvong.last = NULL;
-    danhsachvong.soluong = 0;
 }
 
 bool KiemTraDanhSachRong(DanhSachVong danhsachvong){
@@ -86,4 +85,21 @@ void XuatDanhSach(DanhSachVong danhsachvong, string tenphanxuong){
         nodemoi = nodemoi->link;
     } while(nodemoi != danhsachvong.first);
     cout << endl;
+}
+
+void LamRongDanhSach(DanhSachVong &danhsachvong){
+    NodeVongPtr p = danhsachvong.first;
+    NodeVongPtr tam;
+    while(danhsachvong.first != NULL){
+        tam = danhsachvong.first;
+        if(danhsachvong.first != danhsachvong.last){
+            danhsachvong.first = NULL;
+            danhsachvong.last = NULL;
+        } else {
+            danhsachvong.first = danhsachvong.first->link;
+            danhsachvong.last->link = danhsachvong.first;
+        }
+        delete tam;
+    }
+    danhsachvong.soluong = 0;
 }

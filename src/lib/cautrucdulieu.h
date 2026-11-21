@@ -27,5 +27,6 @@ void ThemNodeVaoCuoiVong(DanhSachVong &danhsachvong, NodeVongPtr nodemoi);
 int LaySoThuTuCongNhan(DanhSachVong danhsachvong);
 void NhapDanhSach(DanhSachVong& danhsachvong, string tenphanxuong);
 void XuatDanhSach(DanhSachVong danhsachvong, string tenphanxuong);
+void LamRongDanhSach(DanhSachVong& danhsachvong);
 
 #endif

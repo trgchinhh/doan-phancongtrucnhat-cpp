@@ -101,14 +101,14 @@ int main(){
                     goto luachonxoasai;
                 }
                 if(luachonxoa == 1){
-                    KhoiTaoDanhSachVong(danhsachvong_phanxuongA);
+                    LamRongDanhSach(danhsachvong_phanxuongA);
                     cout << "(*) Đã xóa danh sách phân xưởng A" << endl;
                 } else if(luachonxoa == 2){
-                    KhoiTaoDanhSachVong(danhsachvong_phanxuongB);
+                    LamRongDanhSach(danhsachvong_phanxuongB);
                     cout << "(*) Đã xóa danh sách phân xưởng B" << endl;
                 } else if(luachonxoa == 3){
-                    KhoiTaoDanhSachVong(danhsachvong_phanxuongA);
-                    KhoiTaoDanhSachVong(danhsachvong_phanxuongB);
+                    LamRongDanhSach(danhsachvong_phanxuongA);
+                    LamRongDanhSach(danhsachvong_phanxuongB);
                     cout << "(*) Đã xóa danh sách 2 phân xưởng A và B" << endl;
                 } else if(luachonxoa == 0){
                     break;
