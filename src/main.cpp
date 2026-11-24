@@ -1,7 +1,4 @@
 #include "include.h"
-#include "lib/banner.h"
-#include "lib/cautrucdulieu.h"
-#include "lib/hamphu.h"
 
 int main(){
     system("cls");
@@ -131,6 +128,6 @@ int main(){
         }
         DungChuongTrinh();
     }
-    
+
     return 0;
 }

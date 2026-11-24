@@ -13,7 +13,7 @@ int main(){
         cout << "Chưa có thư mục " << thumuc_filethucthi << " đang tạo... ";
         create_directories(thumuc_filethucthi);
     } else {
-        cout << "Đã tồn tại thư mục " << thumuc_filethucthi << endl;
+        cout << "Đã tồn tại thư mục " << thumuc_filethucthi;
     }
 
     string lenhbiendich = "g++ src\\*.cpp -o " + duongdan_filethucthi;
